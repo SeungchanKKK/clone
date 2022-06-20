@@ -77,7 +77,7 @@ public class ProductRepository {
         } else {
             return ProductRespDto.builder()
                     .result(true)
-                    .responseMsg(depth2+" 카테고리 조회에 성공했습니다.")
+                    .responseMsg(depth2+" 카테고리 조회에 실패했습니다.")
                     .build();
         }
     }
