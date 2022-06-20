@@ -27,7 +27,8 @@ public class TokenFilter implements Filter {
         String url = httpRequest.getRequestURI();
 
         // 로그인, 회원가입은 jwt 토큰 인증이 필요 없음
-        if(url.startsWith("/comment") || url.startsWith("/like")) {
+        if(url.startsWith("/comment") || url.startsWith("/api/product/**")) {
+            System.out.println("filter");
             String authorization = httpRequest.getHeader("Authorization");
 
             // authorization이 null이거나 Bearer로 시작하지 않을 경우

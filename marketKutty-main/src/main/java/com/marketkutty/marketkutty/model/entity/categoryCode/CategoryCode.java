@@ -22,8 +22,8 @@ public class CategoryCode {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int code; //001001 | 001
-    private int depth1; //001
-    private int depth2; //001
+    private String code; //001001 | 001
+    private String depth1; //001
+    private String depth2; //001
     private String name; //유기농 | 채소
 }

@@ -1,0 +1,1 @@
+insert into "product" values (111, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, '001001', '감자', 3600, '유기농 감자입니다', 'https://img-cf.kurly.com/shop/data/goods/1653038544570y0.jpeg')
