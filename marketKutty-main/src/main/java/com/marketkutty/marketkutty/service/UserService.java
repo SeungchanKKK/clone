@@ -196,13 +196,13 @@ public class UserService {
         int phone = Dto.getPhone();
         String addressName = Dto.getAddress();
         String addressdetail = Dto.getAddressDetail();
-        String zoneNo= Dto.getZoneNo();
+        String zonecode= Dto.getZonecode();
 
         User user = new User(id,username,password,nickname,email,phone);
         AddressDto addressDto = AddressDto.builder()
                 .address(addressName)
                 .addressDetail(addressdetail)
-                .zonecode(zoneNo)
+                .zonecode(zonecode)
                 .defaultAddress(true)
                 .build();
         userRepository.save(user);

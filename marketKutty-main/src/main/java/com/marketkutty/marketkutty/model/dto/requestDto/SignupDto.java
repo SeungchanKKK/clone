@@ -17,7 +17,7 @@ public class SignupDto {
     private int phone;
     private String address;
     private String addressDetail;
-    private String zoneNo;
+    private String zonecode;
 
 }
 
