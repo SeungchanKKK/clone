@@ -1,6 +1,9 @@
 package com.marketkutty.marketkutty.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.marketkutty.marketkutty.model.entity.baseEntity.BaseEntity;
+import com.marketkutty.marketkutty.model.entity.category.Depth1;
+import com.marketkutty.marketkutty.model.entity.category.Depth2;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -12,12 +15,9 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class Product extends BaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="PRODUCT_ID")
     private Long id;
-
-    @NotNull
-    private String code; //001001
 
     @NotNull
     private String name;
@@ -31,4 +31,14 @@ public class Product extends BaseEntity {
     @NotNull
     private String thumb;
 
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name="DEPTH1_ID")
+    @JsonBackReference(value = "product-depth1-fk")
+    private Depth1 depth1;
+
+    @ManyToOne
+    @JoinColumn(name="DEPTH2_ID")
+    @JsonBackReference(value = "product-depth2-fk")
+    private Depth2 depth2;
 }

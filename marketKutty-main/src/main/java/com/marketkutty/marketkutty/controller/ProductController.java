@@ -16,9 +16,9 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping("/api/product/{categoryCode}")
-    public ResponseEntity<List<ProductDto>> getProductList(@PathVariable String categoryCode){
-        List<ProductDto> responseDto = productService.getProductList(categoryCode);
+    @GetMapping("/api/category/{depth1}")
+    public ResponseEntity<List<ProductDto>> getProductList(@PathVariable String depth1){
+        List<ProductDto> responseDto = productService.getProductList(depth1);
         return ResponseEntity.ok()
                 .body(responseDto);
     }

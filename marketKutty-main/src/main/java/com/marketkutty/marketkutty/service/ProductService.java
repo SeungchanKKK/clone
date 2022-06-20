@@ -14,7 +14,8 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public List<ProductDto> getProductList(String categoryCode){
-        return productRepository.findAll(categoryCode);
+    public List<ProductDto> getProductList(String depth1){
+        return productRepository.findAllDepth1(depth1);
     }
+
 }

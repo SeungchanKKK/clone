@@ -2,6 +2,7 @@ package com.marketkutty.marketkutty.repository;
 
 import com.marketkutty.marketkutty.model.dto.responseDto.ProductDto;
 import com.marketkutty.marketkutty.model.entity.Product;
+import com.marketkutty.marketkutty.model.entity.category.Depth1;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -15,17 +16,13 @@ public class ProductRepository {
     @PersistenceContext
     private EntityManager em;
 
-    public List<ProductDto> findAll(String categoryCode){
-        List<Product> productList = em.createQuery("select p from Product p where p.code=:categoryCode", Product.class)
-                .setParameter("categoryCode", categoryCode)
-                .getResultList();
+    public List<ProductDto> findAllDepth1(String depth1){
 
-        if (productList == null) {
-            throw new IllegalArgumentException("해당 카테고리에 상품이 없습니다.");
-        } else {
-            List<ProductDto> productDtoList = new ArrayList<>();
+        Depth1 depth1Data = em.find(Depth1.class, depth1);
+        List<Product> productList = depth1Data.getProductList();
 
-            for(Product product:productList){
+        List<ProductDto> productDtoList = new ArrayList<>();
+        for(Product product:productList){
                 ProductDto productDto = ProductDto.builder()
                         .id(product.getId())
                         .name(product.getName())
@@ -36,9 +33,10 @@ public class ProductRepository {
                 productDtoList.add(productDto);
             }
 
-            return productDtoList;
-        }
 
+            return productDtoList;
     }
 
 }
+
+
