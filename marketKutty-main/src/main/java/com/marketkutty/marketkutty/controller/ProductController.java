@@ -1,8 +1,7 @@
 package com.marketkutty.marketkutty.controller;
 
-import com.marketkutty.marketkutty.model.dto.responseDto.ProducetDetailDto;
+import com.marketkutty.marketkutty.model.dto.responseDto.ProductDetailDto;
 import com.marketkutty.marketkutty.model.dto.responseDto.ProductDto;
-import com.marketkutty.marketkutty.model.entity.ProductDetail;
 import com.marketkutty.marketkutty.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -26,8 +25,10 @@ public class ProductController {
     }
 
     @GetMapping("/api/product/{productId}")
-    public ProducetDetailDto getProductdetail(@PathVariable Long productId){
+    public ProductDetailDto getProductdetail(@PathVariable Long productId){
         return productService.getProductDetail(productId);
     }
+
+
 
 }

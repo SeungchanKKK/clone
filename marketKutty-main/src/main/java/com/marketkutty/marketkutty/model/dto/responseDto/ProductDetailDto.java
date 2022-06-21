@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ProducetDetailDto {
+public class ProductDetailDto {
     Long id;
     String name;
     String summary;
@@ -25,7 +25,7 @@ public class ProducetDetailDto {
     String viewImage;
 
 
-    public ProducetDetailDto(ProductDetail productDetail) {
+    public ProductDetailDto(ProductDetail productDetail) {
         this.id = productDetail.getProduct().getId();
         this.name = productDetail.getProduct().getName();
         this.summary = productDetail.getProduct().getSummary();
